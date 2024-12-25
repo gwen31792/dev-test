@@ -34,7 +34,9 @@
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "yarn install",
+	"postCreateCommand": ["yarn install",
+		"chmod 700 ~/.ssh",
+		"chmod 600 ~/.ssh/*"],
 	"mounts": [
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached"],
 
